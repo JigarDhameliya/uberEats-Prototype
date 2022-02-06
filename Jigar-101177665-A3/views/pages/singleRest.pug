@@ -1,0 +1,56 @@
+html
+	head
+		title #{restaurant.name}
+body
+	include ../partials/header
+	h1 #{restaurant.name}
+	hr
+	h3 ID:&ensp;
+		input#id(type="button",value=restaurant.id)
+	h3 Name:&ensp;
+		input#name(type="textbox",value=restaurant.name)
+	h3 Delivery Fee:&ensp;
+		input#delivery_fee(type="textbox",value=restaurant.delivery_fee)
+	h3 Minimum Order:&ensp;
+		input#min_order(type="textbox",value=restaurant.min_order)
+	h3 Menu:
+		-let counter=0;
+		-let categoryItems=1;
+		-let bullet = "▶  ";
+		each ele in restaurant["menu"]
+			h4 &emsp;&emsp;#{categories[counter]}:
+			-counter = counter + 1
+			each ele2 in ele
+				h4 &emsp;&emsp;&emsp;&emsp;<em>#{bullet}#{ele2.name}</em>
+				-categoryItems =categoryItems + 1 
+				h4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>Description: #{ele2.description}</em>
+				h4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>Price $#{ele2.price}</em>
+			div(id="newItem" + counter)
+			-categoryItems = 1
+		div(id="addNewCategory")
+	h3 Do you want to add a new Category? If yes, then enter a name below and hit Add Category Button!
+	h3 New category:&ensp;
+		input#newCategory(type="textbox")
+		br
+		br
+		button(type="button" id="0" style="background-color:aqua" onclick="newCategory()") Add 
+	h3 Add a new Menu Item by filling in the details below!
+	h3 New Menu Item:&ensp;
+		h4 &emsp;&emsp; Name:&ensp;
+			input#new_name(type="textbox")
+		h4 &emsp;&emsp; Description:&ensp;
+			input#new_description(type="textbox")
+		h4 &emsp;&emsp; Price:&ensp;
+			input#new_price(type="textbox")
+		h4 &emsp;&emsp; Select one of the available category:&ensp;
+			select#selectCategory
+				each category in categories
+					option(value = category) #{category}
+		br
+		button(type="button" id="1" style="background-color:aqua" onclick="newMenuItem()") Add New Menu Item
+	h3 Click Save to save all the above changes:
+		br
+		br
+		button(type="button" id="2" style="background-color:aqua" onclick="saveChanges()") Save Changes!
+	script(src="http://localhost:3000/js/editRestaurant.js")
+	include ../partials/footer

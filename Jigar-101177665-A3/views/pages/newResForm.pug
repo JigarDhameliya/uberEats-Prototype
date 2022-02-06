@@ -1,0 +1,17 @@
+html
+	head
+		title New Restaurant
+body
+	include ../partials/header
+	h1 Add a new Restaurant
+
+	p Enter data into the form below and hit add to add a new restaurant.
+	p Name:
+		input#name(type="textbox")
+	p Delivery Fees:
+		input#deliveryFee(type="textbox")
+	p Min Order:
+		input#minOrder(type="textbox")
+	button#add(type="button", onclick="addRestaurant()") Add
+	script(src="./js/newResClient.js")
+	include ../partials/footer

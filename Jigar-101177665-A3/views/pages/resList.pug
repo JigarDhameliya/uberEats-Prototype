@@ -1,0 +1,6 @@
+include ../partials/header
+br
+each restaurant in restaurants
+	a(href="/restaurants/"+ restaurant.id) #{restaurant.name} (#{restaurant.id})
+	br
+include ../partials/footer

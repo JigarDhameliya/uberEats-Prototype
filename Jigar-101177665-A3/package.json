@@ -1,0 +1,19 @@
+{
+  "name": "a3",
+  "version": "1.0.0",
+  "description": "Assignment3",
+  "main": "server-a3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server-a3.js -e js, mjs, json, pug"
+  },
+  "author": "Jigar Dhameliya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
